@@ -1,0 +1,59 @@
+1 -> Subject 
+    -   Rappresenta l'oggetto che contiene lo stato e notifica i cambiamenti ai suoi osservatori.
+
+    -   Mantiene una lista degli osservatori che devono essere notificati in caso di cambiamenti di stato.
+
+    -   Fornisce metodi per aggiungere e rimuovere osservatori dalla lista.
+
+2 -> Observer 
+    -   Definisce un'interfaccia per aggiornare gli oggetti in seguito a una notifica di cambiamento da parte del soggetto.
+
+    -   Ogni osservatore è un oggetto che desidera essere informato dei cambiamenti di stato nel soggetto.
+
+3 -> ConcreteSubject
+    -   È una specifica implementazione del soggetto.
+
+    -   Memorizza lo stato che interessa agli osservatori.
+
+    -   Notifica gli osservatori quando lo stato cambia.
+
+4 -> ConcreteObserver
+    -   È una specifica implementazione dell'osservatore.
+
+    -   Aggiorna il proprio stato per mantenerlo coerente con quello del soggetto.
+
+    -   Spesso mantiene un riferimento al soggetto per accedere ai dati necessari durante l'aggiornamento.
+
+
++-----------------+       +-----------------+
+|    Subject      |       |    Observer     |
++-----------------+       +-----------------+
+| +attach()       |       | +update()       |
+| +detach()       |       +-----------------+
+| +notify()       |
++-----------------+
+       /_\
+        |
+        |
++----------------------+
+| ConcreteSubject      |
++----------------------+
+| -state               |
+| +getState()          |
+| +setState()          |
++----------------------+
+       /_\
+        |
+        |
++----------------------+
+| ConcreteObserver     |
++----------------------+
+| -subject             |
+| -observerState       |
+| +update()            |
++----------------------+
+
+
+
+    
+
